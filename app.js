@@ -3,6 +3,7 @@ var Prismic = require('prismic-javascript');
 var express = require('express');
 var app = express();
 var apiEndpoint = "https://JenniW.prismic.io/api/v2";
+
  
 function getAll (req, res) {
     Prismic.getApi(apiEndpoint)
@@ -31,4 +32,4 @@ app.get('/', getAll);
 app.get('/:UID', getSpecific)
 
 
-app.listen(3000);
+app.listen(3002);
