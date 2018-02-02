@@ -5,7 +5,7 @@ import Articles from '../components/Articles.js';
 import Header from '../components/Header'
 
 
-const Index = (props) => (
+const Articles = (props) => (
         
             <div>
                 <Header />
@@ -24,4 +24,4 @@ Index.getInitialProps = async function() {
     }    
 }
 
-export default Index;
+export default Articles;
