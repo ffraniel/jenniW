@@ -1,23 +1,12 @@
-var Prismic = require('prismic-javascript');
-var apiEndpoint = "https://JenniW.prismic.io/api/v2";
-import fetch from 'isomorphic-unfetch';
-import Articles from './Articles.js';
+import Header from '../components/Header';
 
 const Index = (props) => (
             <div>
-                <h1>hello there</h1>
-                <Articles articles={props.articles} />
+                <Header />
+                <h1>The Front Page</h1>
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/e2/Antisocialites_-_Alvvays_%28Band%29_Album_Cover.jpg" />>
             </div>
 );
 
-Index.getInitialProps = async function() {
-    const res = await Prismic.getApi(apiEndpoint)
-    .then((api) => {
-        return api.query(""); // An empty query will return all the documents
-    })
-    return {
-        articles:res
-    }    
-}
 
 export default Index;

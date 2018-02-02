@@ -1,12 +1,11 @@
 const ArticleText = (props) => (
     <div>
-        {props.articleText.map((words)=>{
+        {props.articleText.map((words, key)=>{
             return (
-                <p>{words.text}</p>
+                <p className="text" key={key}>{words.text}</p>
             )
         })}
     </div>
 )
-
 
 export default ArticleText;

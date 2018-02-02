@@ -1,79 +1,44 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _regenerator = require('babel-runtime/regenerator');
-
-var _regenerator2 = _interopRequireDefault(_regenerator);
-
-var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
-
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _isomorphicUnfetch = require('isomorphic-unfetch');
+var _Header = require("../components/Header");
 
-var _isomorphicUnfetch2 = _interopRequireDefault(_isomorphicUnfetch);
-
-var _Articles = require('./Articles.js');
-
-var _Articles2 = _interopRequireDefault(_Articles);
+var _Header2 = _interopRequireDefault(_Header);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _jsxFileName = '/home/francis/Code/JenniW/pages/index.js?entry';
-
-var Prismic = require('prismic-javascript');
-var apiEndpoint = "https://JenniW.prismic.io/api/v2";
+var _jsxFileName = "/home/francis/Code/JenniW/pages/index.js?entry";
 
 
 var Index = function Index(props) {
-    return _react2.default.createElement('div', {
+    return _react2.default.createElement("div", {
         __source: {
+            fileName: _jsxFileName,
+            lineNumber: 4
+        }
+    }, _react2.default.createElement(_Header2.default, {
+        __source: {
+            fileName: _jsxFileName,
+            lineNumber: 5
+        }
+    }), _react2.default.createElement("h1", {
+        __source: {
+            fileName: _jsxFileName,
+            lineNumber: 6
+        }
+    }, "The Front Page"), _react2.default.createElement("img", { src: "https://upload.wikimedia.org/wikipedia/en/e/e2/Antisocialites_-_Alvvays_%28Band%29_Album_Cover.jpg", __source: {
             fileName: _jsxFileName,
             lineNumber: 7
         }
-    }, _react2.default.createElement('h1', {
-        __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-        }
-    }, 'hello there'), _react2.default.createElement(_Articles2.default, { articles: props.articles, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 9
-        }
-    }));
+    }), ">");
 };
 
-Index.getInitialProps = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
-    var res;
-    return _regenerator2.default.wrap(function _callee$(_context) {
-        while (1) {
-            switch (_context.prev = _context.next) {
-                case 0:
-                    _context.next = 2;
-                    return Prismic.getApi(apiEndpoint).then(function (api) {
-                        return api.query(""); // An empty query will return all the documents
-                    });
-
-                case 2:
-                    res = _context.sent;
-                    return _context.abrupt('return', {
-                        articles: res
-                    });
-
-                case 4:
-                case 'end':
-                    return _context.stop();
-            }
-        }
-    }, _callee, this);
-}));
-
 exports.default = Index;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2luZGV4LmpzIl0sIm5hbWVzIjpbIlByaXNtaWMiLCJyZXF1aXJlIiwiYXBpRW5kcG9pbnQiLCJmZXRjaCIsIkFydGljbGVzIiwiSW5kZXgiLCJwcm9wcyIsImFydGljbGVzIiwiZ2V0SW5pdGlhbFByb3BzIiwiZ2V0QXBpIiwidGhlbiIsImFwaSIsInF1ZXJ5IiwicmVzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFFQSxBQUFPOzs7O0FBQ1AsQUFBTyxBQUFjOzs7Ozs7OztBQUhyQixJQUFJLFVBQUosQUFBSSxBQUFVO0FBQ2QsSUFBSSxjQUFKLEFBQWtCOzs7QUFJbEIsSUFBTSxRQUFRLFNBQVIsQUFBUSxNQUFBLEFBQUMsT0FBRDsyQkFDRixjQUFBOztzQkFBQTt3QkFBQSxBQUNJO0FBREo7QUFBQSxLQUFBLGtCQUNJLGNBQUE7O3NCQUFBO3dCQUFBO0FBQUE7QUFBQSxPQURKLEFBQ0ksQUFDQSxnQ0FBQSxBQUFDLG9DQUFTLFVBQVUsTUFBcEIsQUFBMEI7c0JBQTFCO3dCQUhGLEFBQ0YsQUFFSTtBQUFBOztBQUhoQjs7QUFPQSxNQUFBLEFBQU0sMkZBQWtCLG1CQUFBO1FBQUE7a0VBQUE7a0JBQUE7NkNBQUE7cUJBQUE7b0NBQUE7bUNBQ0YsQUFBUSxPQUFSLEFBQWUsYUFBZixBQUNqQixLQUFLLFVBQUEsQUFBQzsrQkFDSSxJQUFBLEFBQUksTUFEQSxBQUNYLEFBQU8sQUFBVSxJQUROLEFBQ1gsQ0FBc0IsQUFDekI7QUFKbUIsQUFDRixxQkFBQTs7cUJBQVo7QUFEYyxtQ0FBQTs7a0NBQUEsQUFLYixBQUNNO0FBRE4sQUFDSDs7cUJBTmdCO3FCQUFBO29DQUFBOztBQUFBO2dCQUFBO0FBQXhCLEFBVUE7O2tCQUFBLEFBQWUiLCJmaWxlIjoiaW5kZXguanM/ZW50cnkiLCJzb3VyY2VSb290IjoiL2hvbWUvZnJhbmNpcy9Db2RlL0plbm5pVyJ9
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2luZGV4LmpzIl0sIm5hbWVzIjpbIkhlYWRlciIsIkluZGV4IiwicHJvcHMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQSxBQUFPLEFBQVk7Ozs7Ozs7OztBQUVuQixJQUFNLFFBQVEsU0FBUixBQUFRLE1BQUEsQUFBQyxPQUFEOzJCQUNGLGNBQUE7O3NCQUFBO3dCQUFBLEFBQ0k7QUFESjtBQUFBLEtBQUEsa0JBQ0ksQUFBQzs7c0JBQUQ7d0JBREosQUFDSSxBQUNBO0FBREE7QUFBQSx3QkFDQSxjQUFBOztzQkFBQTt3QkFBQTtBQUFBO0FBQUEsT0FGSixBQUVJLEFBQ0EsMERBQUssS0FBTCxBQUFTO3NCQUFUO3dCQUhKLEFBR0k7QUFBQTtRQUpGLEFBQ0Y7QUFEWixBQVNBOztrQkFBQSxBQUFlIiwiZmlsZSI6ImluZGV4LmpzP2VudHJ5Iiwic291cmNlUm9vdCI6Ii9ob21lL2ZyYW5jaXMvQ29kZS9KZW5uaVcifQ==
