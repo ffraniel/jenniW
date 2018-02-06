@@ -1,14 +1,16 @@
-import Link from 'next/link'
-import Search from './Search'
+import Link from 'next/link';
+import Search from './Search';
+import Meta from '../components/Meta'
 
 const linkStyle = {
   marginRight: 15
 }
 
 const Header = () => (
-    <div>
+    <div className="header">
+      <Meta />
         <div>
-            <h1>Jenni W</h1>
+            <h1 className="pageTitle">Jenni W</h1>
         </div>
         <Link href="/">
           <a style={linkStyle}>Home</a>
@@ -23,6 +25,15 @@ const Header = () => (
           <a style={linkStyle}>Contact</a>
         </Link>
         <Search />
+        <style jsx >{`
+          a {
+            text-decoration:none;
+            color:#363C3C
+          }
+          a:hover {
+            color:#95a5a6;            
+          }
+        `}</style>
     </div>
 )
 
