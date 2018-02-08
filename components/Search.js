@@ -8,6 +8,7 @@ import fetch from 'isomorphic-unfetch';
 import Link from 'next/link'
 import React from 'react';
 import LinksToArticles from './LinksToArticles';
+import Loading from './Loading';
 
 class Search extends React.Component {
     constructor (props) {
@@ -30,7 +31,7 @@ class Search extends React.Component {
                     <input type="text" />
                     <input type="submit" />
                 </form>   
-                {this.state.loading && <div className="loading"><h4>Loading</h4></div>}
+                {this.state.loading && <Loading />}
                 {!this.state.loading && <LinksToArticles list={this.state.list} /> }
                 <style jsx >{`
                     .textSearch { }
