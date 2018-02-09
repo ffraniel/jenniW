@@ -8,8 +8,8 @@ const ArticleBody = (props) => (
                     return (
                         <article key={articleKey} className="singleArticle" >
                             <h1>{article.data.articletitle[0].text}</h1>
-                            <h5 className="articleDate" >Date: {article.data.initialpublicationdate[0].text}</h5>
-                            <h5>Place {article.data.initialpublicationplace[0].text}</h5>
+                            <h5 className="articleDate" >{article.data.initialpublicationdate[0].text}</h5>
+                            <h5>{article.data.initialpublicationplace[0].text}</h5>
                             <img src={article.data.image1.url} /> 
                             <ArticleText articleText={article.data.mainarticle} />
                             <Reference references={article.data.references} />
