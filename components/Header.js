@@ -26,12 +26,21 @@ const Header = () => (
         </Link>
         <Search />
         <style jsx >{`
+          .pageTitle {
+            font-family:var(--mainFont);
+            font-style:italic;
+            font-size:var(--midSizeFont);
+          }
           a {
             text-decoration:none;
-            color:#363C3C
+            color:var(--darkGrey); 
+            font-family:var(--thickFont)
           }
           a:hover {
-            color:#95a5a6;            
+            color:black;    
+          }
+          .header {
+            background-color:var(--darkGreen);
           }
         `}</style>
     </div>

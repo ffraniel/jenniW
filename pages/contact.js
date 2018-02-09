@@ -1,12 +1,12 @@
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 
 const Contact = (props) => (
         
             <div>
-                <Header />
-                <h1>Contact page</h1>
-                <p>You can contact Jenni at....</p>
-
+                <Layout>
+                    <h1>Contact page</h1>
+                    <p>You can contact Jenni at....</p>
+                </Layout>
             </div>
 );
 

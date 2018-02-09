@@ -2,7 +2,7 @@ var Prismic = require('prismic-javascript');
 var apiEndpoint = "https://JenniW.prismic.io/api/v2";
 import fetch from 'isomorphic-unfetch';
 import ArticleBody from '../components/ArticleBody.js';
-import Header from '../components/Header'
+import Layout from '../components/Layout';
 import React from 'react';
 
 class Blog extends React.Component {
@@ -20,7 +20,9 @@ class Blog extends React.Component {
     render () {
         return (
             <div>
-                <h1>hello</h1>
+                <Layout>
+                    <h1>hello</h1>
+                </Layout>
             </div>
         )
     }
