@@ -9,13 +9,9 @@ const Articles = (props) => (
         
             <div>
                 <Layout>
-                    <ArticleBody articles={props.articles} className="articleBodyComp" />
+                    <ArticleBody articles={props.articles} />
                 </Layout>
                 <style jsx>{`
-                    .articleBodyComp {
-                        padding-left:50px;
-                        padding-right:50px;
-                    }
                 `}</style>
             </div>
 );

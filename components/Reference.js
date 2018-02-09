@@ -2,9 +2,16 @@ const Reference = (props) => (
     <div>
         {props.references.map((words, key)=>{
             return (
-                <p className="text" key={key} style={{fontStyle: "italic"}}>{words.text}</p>
+                <p className="references" key={key} >{words.text}</p>
             )
         })}
+        <style jsx>{`
+            .references {
+                color:black;
+                font-style:italic;
+                font-size:var(--referenceSize)
+            }
+        `}</style>
     </div>
 )
 

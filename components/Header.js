@@ -12,24 +12,32 @@ const Header = () => (
         <div>
             <h1 className="pageTitle">Jenni W</h1>
         </div>
-        <Link href="/">
-          <a style={linkStyle}>Home</a>
-        </Link>
-        <Link href="/articles">
-          <a style={linkStyle}>Articles</a>
-        </Link>
-        <Link href="/about">
-          <a style={linkStyle}>About</a>
-        </Link>
-        <Link href="/contact">
-          <a style={linkStyle}>Contact</a>
-        </Link>
+        <div className="links">
+          <Link href="/">
+            <a style={linkStyle}>Home</a>
+          </Link>
+          <Link href="/articles">
+            <a style={linkStyle}>Articles</a>
+          </Link>
+          <Link href="/about">
+            <a style={linkStyle}>About</a>
+          </Link>
+          <Link href="/contact">
+            <a style={linkStyle}>Contact</a>
+          </Link>
+        </div>
         <Search />
         <style jsx >{`
           .pageTitle {
             font-family:var(--mainFont);
             font-style:italic;
             font-size:var(--midSizeFont);
+            padding-left:1%;
+            padding-top:25px;
+          }
+          .links {
+            padding-bottom:6px;
+            padding-left:6px;
           }
           a {
             text-decoration:none;
@@ -41,7 +49,10 @@ const Header = () => (
           }
           .header {
             background-color:var(--darkGreen);
+            overflow: hidden; 
+            // border:red solid 1px;
           }
+
         `}</style>
     </div>
 )

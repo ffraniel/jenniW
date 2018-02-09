@@ -26,16 +26,19 @@ class Search extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="searchComp">
                 <form className="textSearch">
                     <input type="text" />
-                    <input type="submit" />
+                    <input type="submit" value="Search" />
                 </form>   
                 {this.state.loading && <Loading />}
                 {!this.state.loading && <LinksToArticles list={this.state.list} /> }
                 <style jsx >{`
                     .textSearch { }
                     .checkBoxes { }
+                    .searchComp {
+                        padding: 0px 0 6px 6px;
+                      }
                     `}
                 </style>   
             </div>

@@ -22,7 +22,7 @@ const Index = (props) => (
                         return (
                                         <div className="previewDiv" key={key}>
                                             <Link href={{ pathname: '/blog', query: { UID: article.uid } }}>
-                                                <a>
+                                                <a className="linkToArticle">
                                                     <img src={article.data.image1.url} />
                                                     <h3>{article.data.articletitle[0].text}</h3>
                                                 </a>
@@ -50,14 +50,22 @@ const Index = (props) => (
                         -o-background-size: cover;
                         background-size: cover;
                         background-position: absolute;
+                        border:solid 1px rgba(0, 0, 0, 0);
                     }
                     .hero h1 {
                         font-family:var(--mainFont);
                         font-size:var(--bigFont);
+                        padding: 1% 5% 0% 10%;
+                        // border:solid red 1px;
                     }
                     .hero h2 {
                         font-family:var(--mainFont);
                         font-size:var(--midSizeFont);
+                        padding: 0.5% 5% 0% 10%;
+                        // border:solid red 1px;
+                    }
+                    .intro {
+                        padding:0 15% 0 15%;
                     }
                     .intro h2 {
                         font-family:var(--mainFont);
@@ -68,6 +76,9 @@ const Index = (props) => (
                         font-size:var(--smallFont);
                         color:var(--darkGrey);
                         font-weight:800;
+                    }
+                    .preview {
+                        padding:0 15% 0 15%;
                     }
                     .previewDiv a {
                         font-family:var(--thickFont);

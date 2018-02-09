@@ -25,6 +25,7 @@ export default () => (
             --midSizeFont:2rem;
             --smallMidFont:1.5rem;
             --smallFont:1rem;
+            --referenceSize:0.8rem;
             --mainFont:'GloberThin';
             --thickFont:'GloberBold';
           }

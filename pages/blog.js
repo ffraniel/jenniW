@@ -20,9 +20,27 @@ class Blog extends React.Component {
     render () {
         return (
             <div>
-                <Layout>
-                    <h1>hello</h1>
+                <Layout> 
+                    <div className="blog">
+                        <h1>hello</h1>
+                    </div>
                 </Layout>
+                <style jsx>                        
+                    {`
+                    .blog {
+                        padding:0 15% 0 15%;
+                    }
+                    .blog h1 {
+                        font-family:var(--mainFont);
+                        font-size:var(--midSizeFont);
+                    }
+                    .blog p {
+                        font-family:var(--thickFont);
+                        font-size:var(--smallFont);
+                    }
+                    `}
+
+                </style>
             </div>
         )
     }
