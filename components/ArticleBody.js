@@ -2,7 +2,7 @@ import ArticleText from './ArticleText.js';
 import Reference from './Reference.js';
 
 const ArticleBody = (props) => (
-            <div>
+            <div  className="articleBodyComp">
                 {props.articles.map((article, articleKey)=>{
                     if(article.data.initialpublicationdate[0]) { 
                     return (
@@ -27,6 +27,14 @@ const ArticleBody = (props) => (
                     </article>
                     }
                 })}
+                    <style jsx>{`
+                    .articleBodyComp {
+                        padding-left:15%;
+                        padding-right:15%;
+                    }
+
+                    `}
+                    </style>
             </div>
         )
 
