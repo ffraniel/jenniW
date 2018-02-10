@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 
 
 const Articles = (props) => (
-        
             <div>
                 <Layout>
                     <ArticleBody articles={props.articles} />
@@ -22,8 +21,6 @@ Articles.getInitialProps = async function() {
         return api.query(
             "", { 'orderings' : '[my.article.last_publication_date]' }
           ); 
-        //   [my.article.last_publication_date]
-        // An empty query will return all the documents
     })
     return {
         articles:res.results.reverse()

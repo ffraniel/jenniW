@@ -14,10 +14,6 @@ app.prepare()
     return app.render(req, res, '/posts', { uid: req.params.uid })
   })
 
-  server.get('/blogs/:uid', (req, res) => {
-    return app.render(req, res, '/blogs', { uid: req.params.uid })
-  })
-
   server.get('*', (req, res) => {
     return handle(req, res)
   })

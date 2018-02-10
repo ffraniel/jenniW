@@ -54,7 +54,8 @@ class Posts extends React.Component {
                         display: block;
                         margin-left: auto;
                         margin-right: auto;
-                        width: 40%;
+                        width: 80%;
+                        max-width:80%;
                     }
                     .articlePostComp {
                         padding-left:15%;
