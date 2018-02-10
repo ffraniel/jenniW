@@ -4,6 +4,8 @@ import fetch from 'isomorphic-unfetch';
 import ArticleBody from '../components/ArticleBody.js';
 import Layout from '../components/Layout';
 import React from 'react';
+import ArticleText from '../components/ArticleText.js';
+import Reference from '../components/Reference.js';
 
 class Posts extends React.Component {
     static async getInitialProps ({ query: { uid } }) {
@@ -15,19 +17,22 @@ class Posts extends React.Component {
                 return res
             })
             return { posts:data.results[0].data };
-            // console.log(posts)
     }
       
     render () {
         return (
             <div>
-                <Layout> 
-                    <div className="blog">
-                        <h1>hello: {this.props.postID}</h1>
-                        <h1>this one {this.props.posts.articletitle[0].text}</h1>
-                        <p> then {this.props.posts.mainarticle[0].text}</p>
-
-                    </div>
+                <Layout>
+                    <div className="articlePostComp">
+                        <article className="singleArticle">
+                            <h1>{this.props.posts.articletitle[0].text}</h1>
+                            {this.props.posts.initialpublicationdate[0] && <h5 className="articleDate" >{this.props.posts.initialpublicationdate[0].text}</h5> }
+                            {this.props.posts.initialpublicationplace[0] && <h5>{this.props.posts.initialpublicationplace[0].text}</h5> }
+                            {this.props.posts.image1.url && <div className="postImageDiv"> <img src={this.props.posts.image1.url} className="postImage" /> </div> }
+                            <ArticleText articleText={this.props.posts.mainarticle} />
+                            {this.props.posts.references && <Reference references={this.props.posts.references} /> }
+                        </article>
+                    </div> 
                 </Layout>
                 <style jsx>                        
                     {`
@@ -41,6 +46,30 @@ class Posts extends React.Component {
                     .blog p {
                         font-family:var(--thickFont);
                         font-size:var(--smallFont);
+                    }
+                    // .postImageDiv {
+                    //     width:100%;
+                    // }
+                    .postImage {
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 40%;
+                    }
+                    .articlePostComp {
+                        padding-left:15%;
+                        padding-right:15%;
+
+                    }
+                    .singleArticle {
+                        font-family:var(--thickFont);
+                        border: solid 3px var(--midGrey);
+                        background-color:var(--midGrey);
+                        padding-left:10%;
+                        padding-right:10%
+                    }
+                    .articleDate {
+                        padding-left:20px;
                     }
                     `}
 
