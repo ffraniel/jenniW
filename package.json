@@ -14,10 +14,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon app.js",
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "test": "nodemon app.js && next"
+    "start": "NODE_ENV=production node server.js"
   },
   "author": "",
   "license": "ISC"
