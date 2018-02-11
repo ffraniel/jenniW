@@ -85,7 +85,21 @@ const Index = (props) => (
                         font-weight:800;
                     }
                     .preview {
-                        padding:0 15% 0 15%;
+                        padding:0 15% 20px 15%;
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-gap:4%;
+                        
+                        
+                    }
+                    .previewDiv {
+                        align-self: start;
+                        box-shadow:0.2px 0.2px 0.2px 0.2px;
+                        grid-auto-rows: minmax(25px, 500px);
+                        border-radius:1px;
+                        text-align:center;
+                        min-height:280px;
+                        
                     }
                     .previewDiv a {
                         font-family:var(--thickFont);
@@ -94,11 +108,16 @@ const Index = (props) => (
                         display:inline;
                         max-width:30%;
                     }
+                    .previewDiv a h3 {
+                        font-size:var(--smallFont);
+                    }
                     .previewDiv:hover{
                         box-shadow:1px 1px 2px 1px;
                     }
                     .linkImage {
-                        max-width:30%;
+                        padding-top:10px;
+                        width:300px;
+                        max-width:80%;
                     }
 
                 `}</style>
