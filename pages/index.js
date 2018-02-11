@@ -17,12 +17,12 @@ const Index = (props) => (
                     <p>Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test.Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test.</p>
                 </section>
                 <section className="preview">
-                
+
                     {props.articlesIntro.map((article, key)=>{
                         return (
                                         <div className="previewDiv" key={key}>
-                                            <Link href={{ pathname: '/blog', query: { UID: article.uid } }}>
-                                                <a className="linkToArticle">
+                                            <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref >
+                                                <a className="linkToArticle" href="#">
                                                     <img className="linkImage" src={article.data.image1.url} />
                                                     <h3>{article.data.articletitle[0].text}</h3>
                                                 </a>
@@ -100,6 +100,7 @@ const Index = (props) => (
                     .linkImage {
                         max-width:30%;
                     }
+
                 `}</style>
             </div>
 );
