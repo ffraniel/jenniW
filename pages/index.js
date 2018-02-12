@@ -1,10 +1,14 @@
 var Prismic = require('prismic-javascript');
 var apiEndpoint = "https://JenniW.prismic.io/api/v2";
+var accessToken = "MC5Xb0Y0QVNnQUFEYWtveTRM.77-977-9ZR7vv73vv73vv73vv70KNg3vv73vv73vv71NIu-_vTZEN--_ve-_vUHvv70tNUTvv73vv73vv73vv73vv70";
+
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link'
 import Layout from '../components/Layout';
 
-const Index = (props) => (
+const Index = (props) => { 
+
+    return (
             <div className="index" >
                 <Layout>
                 <div className="hero">
@@ -122,17 +126,19 @@ const Index = (props) => (
 
                 `}</style>
             </div>
-);
+    );
+}
 
 
 Index.getInitialProps = async function() {
-    const res = await Prismic.getApi(apiEndpoint)
+    const res = await Prismic.getApi(apiEndpoint,{ accessToken: accessToken })
     .then((api) => {
         return api.query(""); // An empty query will return all the documents
     })
     return {
-        articlesIntro:res.results.reverse().slice(0,3)
+        articlesIntro:res.results.reverse().slice(0,3),
     }    
 }
+
 
 export default Index;

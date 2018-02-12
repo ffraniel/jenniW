@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const LinksToArticles = (props) => (
     <div>
-        <div className="linksByTag">
+        {/* <div className="linksByTag">
             {props.list.map((listItem, key)=>{
                     return (
                         <div key={key}>
@@ -13,7 +13,7 @@ const LinksToArticles = (props) => (
                     )
                 }
             )}
-        </div>
+        </div> */}
     </div>
 
 

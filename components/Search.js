@@ -4,6 +4,7 @@
 
 var Prismic = require('prismic-javascript');
 var apiEndpoint = "https://JenniW.prismic.io/api/v2";
+var accessToken = "MC5Xb0Y0QVNnQUFEYWtveTRM.77-977-9ZR7vv73vv73vv73vv70KNg3vv73vv73vv71NIu-_vTZEN--_ve-_vUHvv70tNUTvv73vv73vv73vv73vv70"; 
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link'
 import React from 'react';
@@ -14,15 +15,15 @@ class Search extends React.Component {
     constructor (props) {
         super(props);
         this.state={
-            loading:true,
-            list:''
+            // loading:true,
+            // list:''
         }
-        this.getDates = this.getDates.bind(this);
+        // this.getDates = this.getDates.bind(this);
     }
 
-    componentDidMount () {
-        this.getDates();
-    }
+    // componentDidMount () {
+    //     this.getDates();
+    // }
 
     render() {
         return (
@@ -45,21 +46,22 @@ class Search extends React.Component {
         )
     }
 
-    getDates() {
-        Prismic.api(apiEndpoint).then(api => {
-            return api.query("");
-        })
-        .then((res)=>{
-            var x = res.results.sort((a, b)=>{
-                return b.uid - a.uid;
-            })         
-            this.setState({
-                list:x,
-                loading:false
-            })
-        })
-        .catch(console.log)
-    }
+    // getDates() {
+    //     Prismic.api(apiEndpoint, { accesstoken: accessToken })
+    //         .then(api => {
+    //         return api.query("");
+    //     })
+    //     .then((res)=>{
+    //         var x = res.results.sort((a, b)=>{
+    //             return b.uid - a.uid;
+    //         })         
+    //         this.setState({
+    //             list:x,
+    //             loading:false
+    //         })
+    //     })
+    //     .catch(console.log)
+    // }
     
 }
 export default Search;
