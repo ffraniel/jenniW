@@ -33,7 +33,9 @@ class Posts extends React.Component {
                             {this.props.posts.image1.url && <div className="postImageDiv"> <img src={this.props.posts.image1.url} className="postImage" /> </div> }
                             <ArticleText articleText={this.props.posts.mainarticle} />
                             {this.props.posts.references && <Reference references={this.props.posts.references} /> }
+                            <button><a id="backA" href="/">Home</a></button>
                         </article>
+                        
                     </div> 
                 </Layout>
                 <style jsx>                        
@@ -73,6 +75,13 @@ class Posts extends React.Component {
                     }
                     .articleDate {
                         padding-left:20px;
+                    }
+
+                    #backA {
+                        display:block;
+                        width:50px;
+                        height:15px;
+                        text-decoration:none;
                     }
                     `}
 
