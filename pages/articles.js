@@ -9,7 +9,8 @@ import Layout from '../components/Layout';
 const Articles = (props) => (
             <div>
                 <Layout>
-                    <ArticleBody articles={props.articles} />
+                    {props.articles && <ArticleBody articles={props.articles} />}
+                    {!props.articles && <h1>No articles found... something must be broken...</h1>}
                 </Layout>
                 <style jsx>{`
                 `}</style>
@@ -20,11 +21,14 @@ Articles.getInitialProps = async function() {
     const res = await Prismic.getApi(apiEndpoint, { accessToken: accessToken })
     .then((api) => {
         return api.query(
-            "", { 'orderings' : '[my.article.last_publication_date]' }
+            [
+                Prismic.Predicates.at('document.type', 'article')            ],
+                {   orderings : '[my.article.last_publication_date, my.article.first_publication_date,]'         
+                }
           ); 
     })
     return {
-        articles:res.results.reverse()
+        articles:res.results
     }    
 }
 

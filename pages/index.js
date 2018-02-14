@@ -13,7 +13,7 @@ const Index = (props) => {
                 <Layout>
                 <div className="hero">
                     <h1>Jenni Whitehead</h1>
-                    <h2>Education/Social Work/Policy</h2>
+                    <h2 className="slideInLeft">Education/Social Work/Policy</h2>
                 </div>
                 <section className="intro">
                     <h2>All this content is gathered over x years...</h2>
@@ -103,7 +103,7 @@ const Index = (props) => {
                         border-radius:1px;
                         text-align:center;
                         min-height:280px;
-                        
+
                     }
                     .previewDiv a {
                         font-family:var(--thickFont);
@@ -121,7 +121,8 @@ const Index = (props) => {
                     .linkImage {
                         padding-top:10px;
                         width:300px;
-                        max-width:80%;
+                        max-width:100%;
+
                     }
 
                 `}</style>
@@ -133,12 +134,14 @@ const Index = (props) => {
 Index.getInitialProps = async function() {
     const res = await Prismic.getApi(apiEndpoint,{ accessToken: accessToken })
     .then((api) => {
-        return api.query(""); // An empty query will return all the documents
+        return api.query([
+            Prismic.Predicates.at('document.type', 'article') ,           ],
+            {   orderings : '[my.article.last_publication_date, my.article.first_publication_date,]'         
+            }); // An empty query will return all the documents
     })
     return {
-        articlesIntro:res.results.reverse().slice(0,3),
+        articlesIntro:res.results.slice(0,3),
     }    
 }
-
 
 export default Index;

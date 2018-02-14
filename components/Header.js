@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Search from './Search';
+import SearchBox from './SearchBox';
 import Meta from '../components/Meta'
 
 const linkStyle = {
@@ -26,7 +26,7 @@ const Header = () => (
             <a style={linkStyle}>Contact</a>
           </Link>
         </div>
-        <Search />
+        <SearchBox />
         <style jsx >{`
           .pageTitle {
             font-family:var(--mainFont);

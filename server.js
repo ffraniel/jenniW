@@ -14,6 +14,10 @@ app.prepare()
     return app.render(req, res, '/posts', { uid: req.params.uid })
   })
 
+  server.get('/search/:searchValue', (req, res) => {
+    return app.render(req, res, '/search', { searchValue: req.params.searchValue })
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })
