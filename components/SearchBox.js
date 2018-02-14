@@ -36,7 +36,7 @@ class SearchBox extends React.Component {
             <div className="searchComp">
                 <form className="textSearch" onSubmit={this.handleSearch}>
                     <input type="text" value={this.state.searchVal} onChange={this.handleChange}/>
-                    <Link href={`/search/?searchVal=${this.state.searchVal}`} as={`/search/${this.state.searchVal}`} passHref >
+                    <Link prefetch href={`/search/?searchVal=${this.state.searchVal}`} as={`/search/${this.state.searchVal}`} passHref >
                         <a href="#" >
                             <button type="submit" value="search">Search</button>
                         </a>
