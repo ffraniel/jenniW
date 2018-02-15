@@ -5,11 +5,15 @@ const accessToken = config.accessToken;
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link'
 import Layout from '../components/Layout';
+import Head from 'next/head';
 
 const Index = (props) => { 
 
     return (
             <div className="index" >
+                <Head>
+                    <title>Jenni Whitehead</title>
+                </Head>
                 <Layout>
                 <div className="hero">
                     <h1>Jenni Whitehead</h1>

@@ -1,8 +1,12 @@
 import Layout from '../components/Layout'
+import Head from 'next/head';
 
 const Contact = (props) => (
         
             <div>
+                <Head>
+                    <title>Contact - Jenni Whitehead </title>
+                </Head>
                 <Layout>
                     <div className="contact">
                         <h1>Contact page</h1>

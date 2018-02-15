@@ -1,8 +1,11 @@
 import Layout from '../components/Layout';
-
+import Head from 'next/head';
 
 const About = (props) => (
             <div>
+                <Head>
+                    <title>About - Jenni Whitehead </title>
+                </Head>
                 <Layout>
                     <div className="about">
                         <h1>About</h1> 

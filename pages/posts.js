@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 import React from 'react';
 import ArticleText from '../components/ArticleText.js';
 import Reference from '../components/Reference.js';
+import Head from 'next/head';
 
 class Posts extends React.Component {
     static async getInitialProps ({ query: { uid } }) {
@@ -24,6 +25,9 @@ class Posts extends React.Component {
     render () {
         return (
             <div>
+                <Head>
+                    <title>{this.props.posts.articletitle[0].text} - Jenni Whitehead</title>
+                </Head>
                 <Layout>
                     <div className="articlePostComp">
                         <article className="singleArticle">

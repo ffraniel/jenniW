@@ -6,7 +6,9 @@ import fetch from 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import React from 'react';
 import ActiveSearch from '../components/ActiveSearch.js';
-import Link from 'next/link'
+import Link from 'next/link';
+import Head from 'next/head';
+
 
 class Search extends React.Component {
     constructor(props) {
@@ -69,10 +71,13 @@ class Search extends React.Component {
     render () {
         return (
             <div>
+                <Head>
+                    <title>Searched for '{this.props.searchValue}'</title>
+                </Head>
                 <Layout>
                     <div className="articleBriefList">
-                        <h3>Search results for "{this.props.searchValue}": </h3>
-                        {(this.state.searchResults.length === 0) && <div className="noResults"><h2>Sorry, we could not find "{this.state.searchValue}".</h2></div>}
+                        <h3>Search results for '{this.props.searchValue}': </h3>
+                        {(this.state.searchResults.length === 0) && <div className="noResults"><h2>Sorry, we could not find '{this.state.searchValue}'.</h2></div>}
                         <ul>
                         {this.state.searchResults.map((article, key)=>{
                             return (

@@ -5,10 +5,13 @@ const accessToken = config.accessToken;
 import fetch from 'isomorphic-unfetch';
 import ArticleBody from '../components/ArticleBody.js';
 import Layout from '../components/Layout';
-
+import Head from 'next/head';
 
 const Articles = (props) => (
             <div>
+                <Head>
+                    <title>Articles - Jenni Whitehead </title>
+                </Head>
                 <Layout>
                     {props.articles && <ArticleBody articles={props.articles} />}
                     {!props.articles && <h1>No articles found... something must be broken...</h1>}
