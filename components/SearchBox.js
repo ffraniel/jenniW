@@ -1,10 +1,7 @@
-//show all dates available
-// show search box to do text search in prismic.io
-// add search results list page - just heading and first paragraph
-
 var Prismic = require('prismic-javascript');
-var apiEndpoint = "https://JenniW.prismic.io/api/v2";
-var accessToken = "MC5Xb0Y0QVNnQUFEYWtveTRM.77-977-9ZR7vv73vv73vv73vv70KNg3vv73vv73vv71NIu-_vTZEN--_ve-_vUHvv70tNUTvv73vv73vv73vv73vv70"; 
+import config from '../config';
+const apiEndpoint = config.apiEndpoint;
+const accessToken = config.accessToken;
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link'
 import React from 'react';

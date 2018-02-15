@@ -1,12 +1,12 @@
 var Prismic = require('prismic-javascript');
-var apiEndpoint = "https://JenniW.prismic.io/api/v2";
-var accessToken = "MC5Xb0Y0QVNnQUFEYWtveTRM.77-977-9ZR7vv73vv73vv73vv70KNg3vv73vv73vv71NIu-_vTZEN--_ve-_vUHvv70tNUTvv73vv73vv73vv73vv70";
+import config from '../config';
+const apiEndpoint = config.apiEndpoint;
+const accessToken = config.accessToken;
 import fetch from 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import React from 'react';
 import ActiveSearch from '../components/ActiveSearch.js';
 import Link from 'next/link'
-var accessToken = "MC5Xb0Y0QVNnQUFEYWtveTRM.77-977-9ZR7vv73vv73vv73vv70KNg3vv73vv73vv71NIu-_vTZEN--_ve-_vUHvv70tNUTvv73vv73vv73vv73vv70";
 
 class Search extends React.Component {
     constructor(props) {
@@ -73,15 +73,19 @@ class Search extends React.Component {
                     <div className="articleBriefList">
                         <h3>Search results for "{this.props.searchValue}": </h3>
                         {(this.state.searchResults.length === 0) && <div className="noResults"><h2>Sorry, we could not find "{this.state.searchValue}".</h2></div>}
+                        <ul>
                         {this.state.searchResults.map((article, key)=>{
                             return (
-                                <Link key={key} href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref>
-                                    <a className="linkToArticle" href="#">
-                                        <h1>{article.data.articletitle[0].text}</h1>
-                                    </a>
-                                </Link>
+                                <li>
+                                    <Link key={key} href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref>
+                                        <a className="linkToArticle" href="#">
+                                            <h3>{article.data.articletitle[0].text}</h3>
+                                        </a>
+                                    </Link>
+                                </li>
                             )
-                        })} 
+                        })}
+                        </ul> 
                         <ActiveSearch allArticles={this.state.allArticles} activeSearchChanged={this.activeSearchChanged}/>                       
                     </div> 
                 </Layout>
@@ -89,6 +93,9 @@ class Search extends React.Component {
                     {`
                     .articleBriefList {
                         padding:0 15% 0 15%;
+                    }
+                    ul {
+                        list-style: none;
                     }
                     
                     `}

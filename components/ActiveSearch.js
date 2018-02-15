@@ -1,11 +1,11 @@
 var Prismic = require('prismic-javascript');
-var apiEndpoint = "https://JenniW.prismic.io/api/v2";
-var accessToken = "MC5Xb0Y0QVNnQUFEYWtveTRM.77-977-9ZR7vv73vv73vv73vv70KNg3vv73vv73vv71NIu-_vTZEN--_ve-_vUHvv70tNUTvv73vv73vv73vv73vv70";
+import config from '../config';
+const apiEndpoint = config.apiEndpoint;
+const accessToken = config.accessToken;
 import fetch from 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import React from 'react';
 import Link from 'next/link'
-var accessToken = "MC5Xb0Y0QVNnQUFEYWtveTRM.77-977-9ZR7vv73vv73vv73vv70KNg3vv73vv73vv71NIu-_vTZEN--_ve-_vUHvv70tNUTvv73vv73vv73vv73vv70";
 
 class ActiveSearch extends React.Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class ActiveSearch extends React.Component {
             const input = new RegExp(e.target.value,'ig');
             return input.test(article.data.searchtext);
             })
-        this.props.activeSearchChanged();    
+        // this.props.activeSearchChanged();    
         this.setState({
             reactiveSearchResults:filtered
         })
