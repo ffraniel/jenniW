@@ -19,7 +19,7 @@ const ArticleText = (props) => (
             }
             if(words.type === "paragraph" && key === 0) {
                 return (
-                    <p className="text" key={key} style={{fontStyle: "italic", fontFamily:"var(--mainFont)", fontWeight:"800"}}>{words.text}</p>
+                    <p className="text" key={key} style={{fontStyle: "italic", fontFamily:"var(--mainFont)", fontWeight:"800", fontSize:"var(--smallMidFont)"}}>{words.text}</p>
                 )
             }
             if(words.type === "paragraph") {
