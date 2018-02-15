@@ -67,6 +67,7 @@ class ActiveSearch extends React.Component {
                                         <h3>{article.data.articletitle[0].text}</h3>
                                     </a>
                                 </Link>
+                                <p>{article.data.mainarticle[0].text}...</p>
                             </li>
                         )
                     })}

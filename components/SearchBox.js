@@ -38,8 +38,6 @@ class SearchBox extends React.Component {
                             <button type="submit" value="search">Search</button>
                         </a>
                     </Link>
-
-
                 </form>   
                 {this.state.loading && <Loading />}
                 {!this.state.loading && <LinksToArticles list={this.state.list} /> }
