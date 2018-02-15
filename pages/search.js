@@ -27,6 +27,14 @@ class Search extends React.Component {
     }
 
     static async getInitialProps ({ query: { searchValue } }) {
+        if (searchValue === "") {
+            return {
+                posts:{
+                    noInput:true
+                },
+                searchValue:""
+            }
+        }
         const data = await (Prismic.getApi(apiEndpoint,{ accessToken: accessToken }))
             .then((api)=>{
                 return api.query([
@@ -76,23 +84,23 @@ class Search extends React.Component {
                 </Head>
                 <Layout>
                     <div className="articleBriefList">
-                        <ActiveSearch allArticles={this.state.allArticles} activeSearchChanged={this.activeSearchChanged}/>  
-                        <h3>Search results for '{this.props.searchValue}': </h3>
+                        <ActiveSearch allArticles={this.state.allArticles} activeSearchChanged={this.activeSearchChanged}/>
+                        {(this.props.searchValue !== "") && <h3>Search results for '{this.props.searchValue}': </h3>}
+                        {this.props.noInput && <h3>Search here</h3>}
                         {(this.state.searchResults.length === 0) && <div className="noResults"><h2>Sorry, we could not find '{this.state.searchValue}'.</h2></div>}
-                        <ul>
+                        <div>
                         {this.state.searchResults.map((article, key)=>{
                             return (
-                                <li>
                                     <Link key={key} href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref>
                                         <a className="linkToArticle" href="#">
                                             <h3>{article.data.articletitle[0].text}</h3>
                                             <p>{article.data.mainarticle[0].text}...</p>
                                         </a>
                                     </Link>
-                                </li>
+
                             )
                         })}
-                        </ul>                      
+                        </div>                      
                     </div> 
                 </Layout>
                 <style jsx>                        

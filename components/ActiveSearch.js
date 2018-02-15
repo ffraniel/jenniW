@@ -49,7 +49,7 @@ class ActiveSearch extends React.Component {
         return (
             <div>
                 <form className="reactiveSearch">
-                    <h3>Search Again</h3>
+                    <h3>Search</h3>
                     <input type="text" value={this.state.reactiveSearchValue} onChange={this.handleChange} />
                     <input type="submit" />
                 </form>

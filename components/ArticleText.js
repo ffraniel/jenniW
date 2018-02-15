@@ -4,7 +4,7 @@ const ArticleText = (props) => (
             if(words.type === "list-item") {
                 return (
                     
-                    <p className="list" key={key}><br /><span style={{paddingLeft: 45}}></span> ° {words.text}</p>
+                    <p className="list" key={key}><br /><span style={{paddingLeft: 45}}></span> - {words.text}</p>
                 )
             }
             if(words.type === "heading3") {

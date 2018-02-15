@@ -24,26 +24,34 @@ const Index = (props) => {
                     <img src="/static/jwRetires.jpeg" alt="Jenni at retirement celebration" className="jwImage"/>
                     <p>Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test.Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test. Here is the text to read. Hopefully there will be more to say here but this is currently just filler, and a test.</p>
                 </section>
-                <section className="preview">
-
-                    {props.articlesIntro.map((article, key)=>{
-                        return (
-                                        <div className="previewDiv" key={key}>
-                                            <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref >
-                                                <a className="linkToArticle" href="#">
-                                                    <img className="linkImage" src={article.data.image1.url} />
-                                                    <h3>{article.data.articletitle[0].text}</h3>
-                                                </a>
-                                            </Link>
-                                        </div>
-                        )
-                    })}
-
-                </section>
+                <div className="articleList">
+                    <section className="archiveTitle">
+                        <h3>Archive</h3>
+                        <div className="marginBottom">
+                        <Link href={'/articles'} as={'/articles'} passHref >
+                                <a className="linkToAllArticles" href="#">Go to all articles</a>
+                        </Link>
+                        </div>
+                    </section>
+                    <section className="preview">
+                        {props.articlesIntro.map((article, key)=>{
+                            return (
+                                            <div className="previewDiv" key={key}>
+                                                <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref >
+                                                    <a className="linkToArticle" href="#">
+                                                        <img className="linkImage" src={article.data.image1.url} />
+                                                        <h3>{article.data.articletitle[0].text}</h3>
+                                                    </a>
+                                                </Link>
+                                            </div>
+                            )
+                        })}
+                    </section>
+                </div>
                 </Layout>
                 <style jsx global >{`
                     .index {
-                        
+                        // width:98.92787127776vw;
                     }
                     .mainImage {
                         width:100%;
@@ -96,9 +104,19 @@ const Index = (props) => {
                         padding:0 15% 20px 15%;
                         display: grid;
                         grid-template-columns: repeat(3, 1fr);
-                        grid-gap:4%;
-                        
-                        
+                        grid-gap:4%;                       
+                    }
+                    .archiveTitle {
+                        padding:0 15% 0px 15%;
+                        text-align:right;
+                    }
+                    .archiveTitle h3 {
+                        font-family:var(--mainFont);
+                        font-size:var(--midSizeFont);
+                    }
+                    .articleList section h3 {
+                        padding:0 15% 0px 15%;
+                        text-align:center;
                     }
                     .previewDiv {
                         align-self: start;
@@ -107,7 +125,7 @@ const Index = (props) => {
                         border-radius:1px;
                         text-align:center;
                         min-height:280px;
-
+                        
                     }
                     .previewDiv a {
                         font-family:var(--thickFont);
@@ -128,7 +146,23 @@ const Index = (props) => {
                         max-width:100%;
 
                     }
-
+                    .linkToAllArticles {
+                        box-shadow:1px 1px 2px 1px;
+                        border-radius:1px;
+                        text-decoration:none;
+                        margin:0 5% 0 0%;
+                        padding:4px;
+                    }
+                    .linkToAllArticles:hover {
+                        box-shadow:1px 3px 4px 1px;
+                    }
+                    .linkToAllArticles:active {
+                        color:white;
+                        box-shadow:1px 0px 2px 1px;
+                    }
+                    .marginBottom {
+                        margin-bottom:15px;
+                    }
                 `}</style>
             </div>
     );
