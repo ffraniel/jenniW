@@ -76,6 +76,7 @@ class Search extends React.Component {
                 </Head>
                 <Layout>
                     <div className="articleBriefList">
+                        <ActiveSearch allArticles={this.state.allArticles} activeSearchChanged={this.activeSearchChanged}/>  
                         <h3>Search results for '{this.props.searchValue}': </h3>
                         {(this.state.searchResults.length === 0) && <div className="noResults"><h2>Sorry, we could not find '{this.state.searchValue}'.</h2></div>}
                         <ul>
@@ -91,8 +92,7 @@ class Search extends React.Component {
                                 </li>
                             )
                         })}
-                        </ul> 
-                        <ActiveSearch allArticles={this.state.allArticles} activeSearchChanged={this.activeSearchChanged}/>                       
+                        </ul>                      
                     </div> 
                 </Layout>
                 <style jsx>                        

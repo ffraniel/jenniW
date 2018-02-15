@@ -39,14 +39,10 @@ class ActiveSearch extends React.Component {
     }
 
     handleSubmit () {
-        if (reactiveSearchResults.length === 0) {
-            console.log("there are no results")
-        }
         this.setState({
             reactiveSearchValue:''
-
         })
-        //reload page here
+        // no prever default so page reloads
     }
 
     render () {
