@@ -7,12 +7,12 @@ const linkStyle = {
 }
 
 const Header = () => (
-    <div className="header">
+    <header className="header">
       <Meta />
         <div>
             <h1 className="pageTitle">Jenni W</h1>
         </div>
-        <div className="links">
+        <nav className="links">
           <Link href="/">
             <a style={linkStyle}>Home</a>
           </Link>
@@ -25,7 +25,7 @@ const Header = () => (
           <Link href="/contact">
             <a style={linkStyle}>Contact</a>
           </Link>
-        </div>
+        </nav>
         <SearchBox />
         <style jsx >{`
           .pageTitle {
@@ -54,7 +54,7 @@ const Header = () => (
           }
 
         `}</style>
-    </div>
+    </header>
 )
 
 export default Header
