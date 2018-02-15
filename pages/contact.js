@@ -9,8 +9,10 @@ const Contact = (props) => (
                 </Head>
                 <Layout>
                     <div className="contact">
-                        <h1>Contact page</h1>
-                        <p>You can contact Jenni at....</p>
+                        <main className="content" >
+                            <h1>Contact page</h1>
+                            <p>You can contact Jenni at....</p>
+                        </main>
                     </div>
                 </Layout>
                 <style jsx>                        
@@ -18,11 +20,19 @@ const Contact = (props) => (
                     .contact {
                         padding:0 15% 0 15%;
                     }
-                    .contact h1 {
-                        font-family:var(--mainFont);
+                    .content {
+                        font-family:var(--thickFont);
+                        border: solid 3px var(--midGrey);
+                        background-color:var(--midGrey);
+                        padding-left:10%;
+                        padding-right:10%
+                        height:100vh;
+                    }
+                    .contact .content h1 {
+                        font-family:var(--thickFont);
                         font-size:var(--midSizeFont);
                     }
-                    .contact p {
+                    .contact .content p {
                         font-family:var(--thickFont);
                         font-size:var(--smallFont);
                     }

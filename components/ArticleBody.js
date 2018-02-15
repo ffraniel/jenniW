@@ -27,7 +27,6 @@ const ArticleBody = (props) => (
                     .articleBodyComp {
                         padding-left:15%;
                         padding-right:15%;
-
                     }
                     .articleDate {
                         padding-left:20px;

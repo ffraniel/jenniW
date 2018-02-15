@@ -8,8 +8,10 @@ const About = (props) => (
                 </Head>
                 <Layout>
                     <div className="about">
-                        <h1>About</h1> 
-                        <p>Jenni Whitehead is a etc</p>
+                        <main className="content">
+                            <h1>About</h1> 
+                            <p>Jenni Whitehead is a etc</p>
+                        </main>
                     </div>
                 </Layout>
                 <style jsx>                        
@@ -17,13 +19,21 @@ const About = (props) => (
                     .about {
                         padding:0 15% 0 15%;
                     }
-                    .about h1 {
-                        font-family:var(--mainFont);
+                    .about .content h1 {
+                        font-family:var(--thickFont);
                         font-size:var(--midSizeFont);
                     }
-                    .about p {
+                    .about .content p {
                         font-family:var(--thickFont);
                         font-size:var(--smallFont);
+                    }
+                    .content {
+                        font-family:var(--thickFont);
+                        border: solid 3px var(--midGrey);
+                        background-color:var(--midGrey);
+                        padding-left:10%;
+                        padding-right:10%
+                        height:100vh;
                     }
                     `}
 

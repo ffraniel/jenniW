@@ -8,7 +8,6 @@ import Layout from '../components/Layout';
 import Head from 'next/head';
 
 const Index = (props) => { 
-
     return (
             <div className="index" >
                 <Head>
@@ -36,14 +35,14 @@ const Index = (props) => {
                     <section className="preview">
                         {props.articlesIntro.map((article, key)=>{
                             return (
-                                            <div className="previewDiv" key={key}>
-                                                <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref >
-                                                    <a className="linkToArticle" href="#">
-                                                        <img className="linkImage" src={article.data.image1.url} />
-                                                        <h3>{article.data.articletitle[0].text}</h3>
-                                                    </a>
-                                                </Link>
-                                            </div>
+                                <div className="previewDiv" key={key}>
+                                    <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref >
+                                        <a className="linkToArticle" href="#">
+                                            <img className="linkImage" src={article.data.image1.url} />
+                                            <h3>{article.data.articletitle[0].text}</h3>
+                                        </a>
+                                    </Link>
+                                </div>
                             )
                         })}
                     </section>
@@ -168,18 +167,15 @@ const Index = (props) => {
     );
 }
 
-
 Index.getInitialProps = async function() {
     const res = await Prismic.getApi(apiEndpoint,{ accessToken: accessToken })
     .then((api) => {
-        return api.query([
-            Prismic.Predicates.at('document.type', 'article') ,           ],
-            {   orderings : '[my.article.last_publication_date, my.article.first_publication_date,]'         
-            }); // An empty query will return all the documents
-    })
-    return {
-        articlesIntro:res.results.slice(0,3),
-    }    
+        return api.query([ Prismic.Predicates.at('document.type', 'article')],
+            { orderings : '[my.article.last_publication_date, my.article.first_publication_date,]' }); 
+        })
+        return {
+            articlesIntro:res.results.slice(0,3)
+        }    
 }
 
 export default Index;
