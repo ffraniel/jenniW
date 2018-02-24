@@ -16,7 +16,7 @@ const Index = (props) => {
                 <Layout>
                 <div className="hero">
                     <h1>Jenni Whitehead</h1>
-                    <h2 className="slideInLeft">Education/Social Work/Policy</h2>
+                    <h2 className="slideInLeft">Safeguarding in Education</h2>
                 </div>
                 <section className="intro">
                     <h2>All this content is gathered over x years...</h2>
@@ -38,7 +38,8 @@ const Index = (props) => {
                                 <div className="previewDiv" key={key}>
                                     <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref >
                                         <a className="linkToArticle" href="#">
-                                            <img className="linkImage" src={article.data.image1.url} />
+                                            {article.data.image1.url && <img className="linkImage" src={article.data.image1.url} />}
+                                            {!article.data.image1.url && <img className="linkImage" src="../static/image4.jpeg" />  }
                                             <h3>{article.data.articletitle[0].text}</h3>
                                         </a>
                                     </Link>
@@ -143,6 +144,7 @@ const Index = (props) => {
                         padding-top:10px;
                         width:300px;
                         max-width:100%;
+                        max-height:180px;
 
                     }
                     .linkToAllArticles {
@@ -174,7 +176,7 @@ Index.getInitialProps = async function() {
             { orderings : '[my.article.last_publication_date, my.article.first_publication_date,]' }); 
         })
         return {
-            articlesIntro:res.results.slice(0,3)
+            articlesIntro:res.results
         }    
 }
 

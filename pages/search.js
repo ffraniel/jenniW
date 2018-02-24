@@ -8,6 +8,7 @@ import React from 'react';
 import ActiveSearch from '../components/ActiveSearch.js';
 import Link from 'next/link';
 import Head from 'next/head';
+import Loading from '../components/Loading.js';
 
 
 class Search extends React.Component {
@@ -48,7 +49,8 @@ class Search extends React.Component {
             })
             return { 
                 posts:data.results,
-                searchValue:searchValue
+                searchValue:searchValue,
+                initialLoadDone:true
             }
     }
     
@@ -85,9 +87,10 @@ class Search extends React.Component {
                 <Layout>
                     <div className="articleBriefList">
                         <ActiveSearch allArticles={this.state.allArticles} activeSearchChanged={this.activeSearchChanged}/>
-                        {(this.props.searchValue !== "") && <h3>Search results for '{this.props.searchValue}': </h3>}
+                        {(this.state.searchResults.length === 0 && this.props.searchValue) && <Loading />}
+                        {((this.state.searchResults.length > 0) && this.props.searchValue !== "") && <h3>Search results for '{this.props.searchValue}': </h3>}
                         {this.props.noInput && <h3>Search here</h3>}
-                        {(this.state.searchResults.length === 0) && <div className="noResults"><h2>Sorry, we could not find '{this.state.searchValue}'.</h2></div>}
+                        {(this.state.searchResults.length === 0 && this.state.loading.false) && <div className="noResults"><h2>Sorry, we could not find '{this.state.searchValue}'.</h2></div>}
                         <ul>
                         {this.state.searchResults.map((article, key)=>{
                             return (

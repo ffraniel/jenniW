@@ -10,7 +10,7 @@ const About = (props) => (
                     <div className="about">
                         <main className="content">
                             <h1>About</h1> 
-                            <p>Jenni Whitehead is a etc</p>
+                            <p>About this website. Why done. Archive of articles.</p>
                         </main>
                     </div>
                 </Layout>

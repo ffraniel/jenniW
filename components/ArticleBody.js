@@ -7,7 +7,7 @@ const ArticleBody = (props) => (
                     return (
                         <article key={articleKey} className="singleArticle" >
                             <h1>{article.data.articletitle[0].text}</h1>
-                            {article.data.initialpublicationdate[0] && <h5 className="articleDate" >{article.data.initialpublicationdate[0].text}</h5>}
+                            {article.data.initialpublicationdate[0] && <h5 className="articleDate" >First published: {article.data.initialpublicationdate[0].text}</h5>}
                             {article.data.initialpublicationplace[0] && <h5>{article.data.initialpublicationplace[0].text}</h5> }
                             {article.data.image1.url && <img src={article.data.image1.url} alt="decorative only" className="postImage" /> }
                             <ArticleText articleText={article.data.mainarticle} />
