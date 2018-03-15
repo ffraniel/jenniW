@@ -92,8 +92,7 @@ class Contact extends React.Component {
                         <main className="content" >
                             {this.state.sending && <Loading />}
                             <h1>Contact page</h1>
-                            <p>You can contact Jenni at....</p>
-                            <a href="genni@postmaster.co.uk">genni@postmaster.co.uk</a>
+                            <p>If you would like to get in touch with Jenni please use the form below.</p>
                             <form id="contactForm" onSubmit={this.handleSubmit}>
                                 <p>Name: </p><input type="text" placeholder="name" name="name" id="name" onChange={this.handleNameChange}/>
                                 <br />
@@ -102,7 +101,7 @@ class Contact extends React.Component {
                                 <p>Organisation: </p><input type="text" placeholder="organisation" name="organisation" id="organisation" onChange={this.handleOrganisationChange}/>
                                 <br />
                                 <p>Message: </p><textarea placeholder="message" name="message" id="messageInput" maxLength="500" onChange={this.handleMessageChange} />
-                                <input type="submit" />
+                                <input id="submitButton" type="submit" />
                             </form>
                         </main>
                     }
@@ -139,7 +138,6 @@ class Contact extends React.Component {
                     }
                     #contactForm {
                         padding:4px;
-
                     }
                     #contactForm input {
                         border: 3px solid #cccccc;
@@ -148,14 +146,15 @@ class Contact extends React.Component {
                         font-family: var(--thickFont);
                         font-color:black; 
                         font-size:var(--referenceSize);
-                        width:80%;
-	                    min-height: 20px; 
+                        width:90%;
+                        min-height: 20px; 
+                        position:relative;
                     }
                     #messageInput {
                         resize: none;
                         overflow: auto;
                         height: auto; 
-                        width:80%;
+                        width:90%;
 	                    min-height: 80px;
                         border: 3px solid #cccccc;
                         border-radius:5px;
