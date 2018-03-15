@@ -6,6 +6,7 @@ export default () => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
       <link href="../static/style.css" rel="stylesheet" type="text/css" />
+      <link href="https://fonts.googleapis.com/css?family=Cardo|EB+Garamond" rel="stylesheet" />
       <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     </Head>
     <style jsx global>{`
@@ -22,6 +23,7 @@ export default () => (
             --blue:#186BAE;
             --deepRed:#AE3027;
             
+            --titleFont:'Cardo', serif;
             --bigFont:3.8rem;
             --midSizeFont:2rem;
             --smallMidFont:1.5rem;

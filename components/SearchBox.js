@@ -45,8 +45,12 @@ class SearchBox extends React.Component {
                     .textSearch { }
                     .checkBoxes { }
                     .searchComp {
-                        padding: 0px 0 6px 6px;
+                        // background-color:grey;
+                        display:inline-block;
                       }
+                    button {
+
+                    }
                     `}
                 </style>   
             </div>
