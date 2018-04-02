@@ -121,7 +121,7 @@ class Contact extends React.Component {
                         padding:0 15% 0 15%;
                     }
                     .content {
-                        font-family:var(--thickFont);
+                        font-family:var(--titleFont);
                         border: solid 3px var(--midGrey);
                         background-color:var(--midGrey);
                         padding-left:10%;

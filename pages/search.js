@@ -94,8 +94,8 @@ class Search extends React.Component {
                         <ul>
                         {this.state.searchResults.map((article, key)=>{
                             return (
-                                <li>                            
-                                    <Link key={key} href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref>
+                                <li key={key}>                            
+                                    <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref>
                                         <a className="linkToArticle" href="#">
                                             <h3>{article.data.articletitle[0].text}</h3>
                                             <p>{article.data.mainarticle[0].text}...</p>

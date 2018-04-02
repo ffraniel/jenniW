@@ -15,7 +15,14 @@ app.prepare()
   })
 
   server.get('/search/:searchValue', (req, res) => {
-    return app.render(req, res, '/search', { searchValue: req.params.searchValue })
+    let searchedValue;
+    if (req.params.searchValue) {
+      searchedValue = req.params.searchValue;
+    }
+    if  (!req.params.searchedValue) {
+      searchedValue = "brains";
+    }
+    return app.render(req, res, '/search', { searchValue: searchedValue })
   })
 
   server.get('*', (req, res) => {

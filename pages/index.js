@@ -9,7 +9,7 @@ import Head from 'next/head';
 
 const Index = (props) => { 
     return (
-            <div className="index" >
+            <div className="index">
                 <Head>
                     <title>Jenni Whitehead</title>
                 </Head>
@@ -67,12 +67,17 @@ const Index = (props) => {
                         background-size: cover;
                         background-position: absolute;
                         border:solid 1px rgba(0, 0, 0, 0);
+                        animation: fadeIn 2s;
+                        -webkit-animation: fadeIn 2s; 
                     }
                     .hero h1 {
                         font-family:var(--mainFont);
                         font-size:var(--bigFont);
                         padding: 1% 5% 0% 10%;
                         // border:solid red 1px;
+                        position: relative;
+                        -webkit-animation: slider 2.5s; 
+                        animation: slider 2.5s;
                     }
                     .hero h2 {
                         font-family:var(--mainFont);
@@ -92,13 +97,16 @@ const Index = (props) => {
                         margin-left: auto;
                         margin-right: auto;
                         // width: 40%;
-                        border-radius:50%;
                     }
                     .intro p {
                         font-family:var(--mainFont);
                         font-size:var(--smallFont);
                         color:var(--darkGrey);
                         font-weight:800;
+                    }
+                    .intro > * {
+                        animation: slider 3s;
+                        -webkit-animation: slider 3s; 
                     }
                     .preview {
                         padding:0 15% 20px 15%;
@@ -163,6 +171,29 @@ const Index = (props) => {
                     }
                     .marginBottom {
                         margin-bottom:15px;
+                    }
+                    .slideInLeft {  
+                        position: relative;
+                        -webkit-animation: mymove 5s infinite; 
+                        animation: slider 2.8s ;
+                    }
+                    @keyframes slider {
+                        0%   {
+                            left: -80px; 
+                            opacity:0;
+                        }
+                        100% {
+                            left: 0px;
+                            opacity:1;
+                        }
+                    }
+                    @keyframes fadeIn {
+                        0% {
+                            opacity:0;
+                        }
+                        100% {
+                            opacity:1;
+                        }
                     }
                 `}</style>
             </div>

@@ -27,7 +27,16 @@ const Header = () => (
           </nav>
           <SearchBox className="topBlock"/>
         </div>
-        <style jsx >{`
+        <style jsx >{`         
+          .header {
+            background-color:var(--lightGrey);
+            overflow: hidden; 
+            position: sticky;
+            position: -webkit-sticky;
+            top:0px;
+            border-bottom:solid var(--darkGrey) 0.5px;
+            width:100%;
+          }
           .pageTitle {
             font-family:var(--titleFont);
             font-size:1.5rem;;
@@ -63,14 +72,8 @@ const Header = () => (
           }
           a:active {
             color:white;
-            background-color:var(--lightGreen);
+            background-color:var(--darkGrey);
             border-radius: 4px;
-          }
-          .header {
-            background-color:var(--darkGreen);
-            overflow: hidden; 
-            position:relative;
-            // border:red solid 1px;
           }
         `}</style>
     </header>

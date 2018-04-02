@@ -57,8 +57,8 @@ class ActiveSearch extends React.Component {
                     {(this.state.reactiveSearchResults === "") && <div></div>}
                     {(this.state.reactiveSearchResults.length >= 1 && this.state.reactiveSearchResults < this.props.allArticles) && this.state.reactiveSearchResults.map((article, key)=>{
                         return(
-                            <li>
-                                <Link key={key} href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHre>
+                            <li key={key}>
+                                <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHre>
                                     <a href="#">
                                         <h3>{article.data.articletitle[0].text}</h3>
                                     </a>

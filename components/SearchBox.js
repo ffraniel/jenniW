@@ -32,10 +32,10 @@ class SearchBox extends React.Component {
         return (
             <div className="searchComp">
                 <form className="textSearch" onSubmit={this.handleSearch}>
-                    <input type="text" value={this.state.searchVal} onChange={this.handleChange}/>
+                    <input type="text" value={this.state.searchVal} placeholder={"Search"} onChange={this.handleChange}/>
                     <Link prefetch href={`/search/?searchVal=${this.state.searchVal}`} as={`/search/${this.state.searchVal}`} passHref >
                         <a href="#" >
-                            <button type="submit" value="search">Search</button>
+                            <button className="searchButton" type="submit" value="search">Search</button>
                         </a>
                     </Link>
                 </form>   
@@ -45,11 +45,16 @@ class SearchBox extends React.Component {
                     .textSearch { }
                     .checkBoxes { }
                     .searchComp {
-                        // background-color:grey;
                         display:inline-block;
                       }
-                    button {
-
+                    .searchButton {
+                        background-color:var(--midGrey);
+                        // border: none;
+                        color: black;
+                        text-align: center;
+                        font-family:var(--titleFont);
+                        font-weight:600;
+                        // font-size: 0.9rem;
                     }
                     `}
                 </style>   
