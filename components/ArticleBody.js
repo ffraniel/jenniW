@@ -37,8 +37,9 @@ const ArticleBody = (props) => (
                         margin-right: auto;
                         width: 80%;
                         max-width:80%;
+                        animation: fadeIn 2s;
+                        -webkit-animation: fadeIn 2s; 
                     }
-
                     `}
                     </style>
             </div>

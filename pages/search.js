@@ -18,8 +18,7 @@ class Search extends React.Component {
             searchValue:this.props.searchValue,
             searchResults:this.props.posts,
             allArticles:'',
-            loading:true,
-            activeLive:false
+            loading:true
         }
         this.getAll = this.getAll.bind(this);
     }
@@ -49,8 +48,7 @@ class Search extends React.Component {
             })
             return { 
                 posts:data.results,
-                searchValue:searchValue,
-                initialLoadDone:true
+                searchValue:searchValue
             }
     }
     
@@ -68,15 +66,6 @@ class Search extends React.Component {
                 })
                 .catch(console.log)
         }
-    activeSearchChanged () {
-        if (this.state.activeLive === true) {
-            this.setState({
-                activeLive:true,
-                searchResults:''
-            })
-        }
-    }
-
 
     render () {
         return (
@@ -86,13 +75,15 @@ class Search extends React.Component {
                 </Head>
                 <Layout>
                     <div className="articleBriefList">
-                        <ActiveSearch allArticles={this.state.allArticles} activeSearchChanged={this.activeSearchChanged}/>
-                        {(this.state.searchResults.length === 0 && this.props.searchValue) && <Loading />}
-                        {((this.state.searchResults.length > 0) && this.props.searchValue !== "") && <h3>Search results for '{this.props.searchValue}': </h3>}
-                        {this.props.noInput && <h3>Search here</h3>}
-                        {(this.state.searchResults.length === 0 && this.state.loading.false) && <div className="noResults"><h2>Sorry, we could not find '{this.state.searchValue}'.</h2></div>}
+                        <ActiveSearch allArticles={this.state.allArticles} />
+                        {(this.props.searchValue) && <h1>Searched for "{this.props.searchValue}"</h1>}
+                        {(this.state.searchResults.length === 0 && this.state.loading === true) && <Loading />}
+                        {(this.state.searchResults.length === 0 && this.state.loading === false && this.props.searchValue) 
+                            && <h1>Sorry, we were not able to find any results.</h1>}
+                        {(this.state.searchResults.length === 0 && this.state.loading === false && !this.props.searchValue) 
+                            && <h1>Search the Archives</h1>}
                         <ul>
-                        {this.state.searchResults.map((article, key)=>{
+                        {this.state.searchResults && this.state.searchResults.map((article, key)=>{
                             return (
                                 <li key={key}>                            
                                     <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHref>

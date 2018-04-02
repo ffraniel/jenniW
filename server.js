@@ -16,11 +16,11 @@ app.prepare()
 
   server.get('/search/:searchValue', (req, res) => {
     let searchedValue;
-    if (req.params.searchValue) {
+    if(req.params.searchValue) {
       searchedValue = req.params.searchValue;
     }
-    if  (!req.params.searchedValue) {
-      searchedValue = "brains";
+    if(!req.params.searchValue) {
+      searchedValue = "";
     }
     return app.render(req, res, '/search', { searchValue: searchedValue })
   })

@@ -32,7 +32,6 @@ class ActiveSearch extends React.Component {
             const input = new RegExp(e.target.value,'ig');
             return input.test(article.data.searchtext);
             })
-        // this.props.activeSearchChanged();    
         this.setState({
             reactiveSearchResults:filtered
         })
