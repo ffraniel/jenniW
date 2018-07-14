@@ -37,10 +37,11 @@ class ActiveSearch extends React.Component {
         })
     }
 
-    handleSubmit () {
+    handleSubmit (e) {
         this.setState({
             reactiveSearchValue:''
-        })
+        });
+        // e.preventDefault();
         // no prever default so page reloads
     }
 
@@ -50,19 +51,23 @@ class ActiveSearch extends React.Component {
                 <form className="reactiveSearch">
                     <h3>Search</h3>
                     <input type="text" value={this.state.reactiveSearchValue} onChange={this.handleChange} />
-                    <input type="submit" />
+                    <input type="submit" onSubmit={this.handleSubmit} />
                 </form>
                 <ul>
                     {(this.state.reactiveSearchResults === "") && <div></div>}
+                    {(this.state.reactiveSearchResults.length >= 1 && this.state.reactiveSearchResults < this.props.allArticles) && <h1>Results for "{this.state.reactiveSearchValue}"</h1>}
                     {(this.state.reactiveSearchResults.length >= 1 && this.state.reactiveSearchResults < this.props.allArticles) && this.state.reactiveSearchResults.map((article, key)=>{
+                        const uid = article.uid;
+                        const title = article.data.articletitle[0].text;
+                        const text = article.data.mainarticle[0].text;
                         return(
                             <li key={key}>
-                                <Link href={`/posts/?uid=${article.uid}`} as={`/posts/${article.uid}`} passHre>
+                                <Link href={`/posts/?uid=${uid}`} as={`/posts/${uid}`} passHre>
                                     <a href="#">
-                                        <h3>{article.data.articletitle[0].text}</h3>
+                                        <h3>{title}</h3>
                                     </a>
                                 </Link>
-                                <p>{article.data.mainarticle[0].text}...</p>
+                                <p>{text}...</p>
                             </li>
                         )
                     })}
